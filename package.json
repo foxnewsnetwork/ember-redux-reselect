@@ -1,17 +1,19 @@
 {
   "name": "ember-redux-reselect",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "ember-cli shim for react's reselect for building selectors in redux",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "selector",
+    "orm"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Thomas Chen",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/foxnewsnetwork/ember-redux-reselect",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
