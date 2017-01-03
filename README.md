@@ -1,6 +1,46 @@
 # ember-redux-reselect
 
-This README outlines the details of collaborating on this Ember addon.
+[![CircleCI](https://circleci.com/gh/foxnewsnetwork/ember-redux-reselect.svg?style=svg)](https://circleci.com/gh/foxnewsnetwork/ember-redux-reselect)
+
+
+ember-cli shim for react's reselect library here https://github.com/reactjs/reselect
+
+## Usage
+Follow the guide on their site, it works exactly the same way here in ember land:
+
+```javascript
+import { createSelector } from 'reselect'
+
+const shopItemsSelector = state => state.shop.items
+const taxPercentSelector = state => state.shop.taxPercent
+
+const subtotalSelector = createSelector(
+  shopItemsSelector,
+  items => items.reduce((acc, item) => acc + item.value, 0)
+)
+
+const taxSelector = createSelector(
+  subtotalSelector,
+  taxPercentSelector,
+  (subtotal, taxPercent) => subtotal * (taxPercent / 100)
+)
+
+export const totalSelector = createSelector(
+  subtotalSelector,
+  taxSelector,
+  (subtotal, tax) => ({ total: subtotal + tax })
+)
+
+let exampleState = {
+  shop: {
+    taxPercent: 8,
+    items: [
+      { name: 'apple', value: 1.20 },
+      { name: 'orange', value: 0.95 },
+    ]
+  }
+}
+```
 
 ## Installation
 
